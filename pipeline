@@ -9,35 +9,22 @@ pipeline {
     stages {
         stage("init") {
             steps {
-                script {
-                   gv = load "script.groovy" 
+                echo "The init stage"
                 }
             }
-        }
         stage("build") {
             steps {
-                script {
-                    gv.buildApp()
-                }
+			echo "The build stage"
             }
         }
         stage("test") {
-            when {
-                expression {
-                    params.executeTests
-                }
-            }
             steps {
-                script {
-                    gv.testApp()
+	             echo "The test stage"
                 }
             }
-        }
         stage("deploy") {
             steps {
-                script {
-                    gv.deployApp()
-                }
+                echo "The deploy stage"                }
             }
         }
     }   
